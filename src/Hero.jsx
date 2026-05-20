@@ -1,14 +1,20 @@
-export function Hero({ name, title, phone, email, linkedin, location }) {
+export function Hero({ name, tagline, email, phone, linkedin, github, location }) {
   return (
-    <section className="hero">
+    <header className="hero" id="top">
+      <p className="hero__available">Open to new opportunities</p>
       <h1 className="hero__name">{name}</h1>
-      <p className="hero__title">{title}</p>
-      <ul className="hero__contact">
-        <li><a href={`tel:${phone}`}>{phone}</a></li>
-        <li><a href={`mailto:${email}`}>{email}</a></li>
-        <li><a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li>{location}</li>
-      </ul>
-    </section>
+      <p className="hero__tagline">{tagline}</p>
+      <div className="hero__contact">
+        <a href={`mailto:${email}`}>{email}</a>
+        <span className="hero__sep" aria-hidden="true">/</span>
+        <a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span className="hero__sep" aria-hidden="true">/</span>
+        <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span className="hero__sep" aria-hidden="true">/</span>
+        <span>{phone}</span>
+        <span className="hero__sep" aria-hidden="true">/</span>
+        <span>{location}</span>
+      </div>
+    </header>
   )
 }

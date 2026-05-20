@@ -1,23 +1,32 @@
 export function Projects({ items }) {
   return (
-    <section className="section">
-      <h2 className="section__title">Projects</h2>
-      <ul className="projects-list">
+    <section className="section reveal" id="projects">
+      <h2 className="section__heading">Projects</h2>
+      <div className="entries">
         {items.map((proj, i) => (
-          <li key={i} className="project-item">
-            <h3 className="project-item__name">
-              {proj.name}
-              {proj.note && <span className="project-item__note"> ({proj.note})</span>}
-            </h3>
-            <p className="project-item__desc">{proj.description}</p>
-            {proj.link && (
-              <a href={proj.link} target="_blank" rel="noopener noreferrer" className="project-item__link">
-                {proj.linkLabel}
-              </a>
-            )}
-          </li>
+          <article className="entry" key={i}>
+            <div className="entry__header">
+              <div className="entry__left">
+                <h3 className="entry__company">{proj.name}</h3>
+                <p className="entry__role">
+                  {proj.role}
+                  <span className="entry__sep" aria-hidden="true">/</span>
+                  {proj.tagline}
+                  <span className="entry__sep" aria-hidden="true">/</span>
+                  <span className="entry__highlight">{proj.users} users</span>
+                </p>
+              </div>
+              <div className="entry__right">
+                <span className="entry__period">{proj.period}</span>
+                <span className="entry__location">{proj.location}</span>
+              </div>
+            </div>
+            <ul className="entry__bullets">
+              {proj.bullets.map((b, j) => <li key={j}>{b}</li>)}
+            </ul>
+          </article>
         ))}
-      </ul>
+      </div>
     </section>
   )
 }
