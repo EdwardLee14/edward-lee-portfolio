@@ -32,22 +32,10 @@ export const work = [
       { value: '25+', label: 'tickets shipped in my first three weeks, as one of three engineers' },
     ],
     points: [
-      {
-        title: 'Grounded in what we actually support',
-        body: "I own the knowledge pipeline: retrieval tools over Pipe17's connector knowledge base, so Atlas recommends what the product does today rather than what a model guesses",
-      },
-      {
-        title: 'Stays current on its own',
-        body: 'A nightly refresh and drift check compares the knowledge base to the connector platform and opens its own pull requests when they diverge, with versioned releases',
-      },
-      {
-        title: 'Security from day one',
-        body: 'Connector code runs in a sandbox, and a CI leak check keeps customer names out of shared knowledge',
-      },
-      {
-        title: 'Built with the people using it',
-        body: 'I set up a recurring sync with the engineers using Atlas and turned their feedback into tickets; scope now comes from the uploaded sales quote, so Atlas never invents unpaid work',
-      },
+      { title: 'Grounded in the real product', body: "Retrieval over Pipe17's connector knowledge base" },
+      { title: 'Stays current on its own', body: 'Nightly drift check that opens its own PRs' },
+      { title: 'Secure by default', body: 'Sandboxed connector code, CI check keeps customer data out' },
+      { title: 'Built with its users', body: 'Recurring feedback sync with the engineers using it' },
     ],
     stack: ['TypeScript', 'LLM agents', 'Postgres', 'AWS', 'CI/CD'],
   },
@@ -69,18 +57,9 @@ export const work = [
       { value: 'Exactly once', label: 'message delivery through reconnects and app crashes' },
     ],
     points: [
-      {
-        title: 'Messages never drop or double',
-        body: 'Client-side idempotency keys and Postgres upserts, plus an offline outbound queue that replays subscriptions on reconnect',
-      },
-      {
-        title: 'Offline first',
-        body: 'A SwiftData layer keeps the whole app usable with no connection, and background queues sync once signal returns',
-      },
-      {
-        title: 'Recovers from dropped connections',
-        body: 'A shared real-time layer resumes from a cursor after a disconnect, and media uploads survive the app being killed',
-      },
+      { title: 'No dropped or double messages', body: 'Idempotency keys, Postgres upserts, offline send queue' },
+      { title: 'Offline first', body: 'SwiftData cache that syncs on reconnect' },
+      { title: 'Survives bad connections', body: 'Cursor replay after disconnects, uploads survive app kills' },
     ],
     stack: ['Swift', 'SwiftUI', 'SwiftData', 'Supabase', 'Postgres', 'WebSockets'],
     link: { href: 'https://apps.apple.com/us/app/kndi/id6762342337', label: 'View on the App Store' },
@@ -103,22 +82,10 @@ export const work = [
       { value: '<1%', label: 'unsupported claims, measured with RAGAS faithfulness' },
     ],
     points: [
-      {
-        title: 'Tool harness with a human in the loop',
-        body: 'Built on LangChain4j, with tools to search study documents, query and edit protocol data over GraphQL, and stage validated edits for approval',
-      },
-      {
-        title: 'Retrieval it can trust',
-        body: 'Hybrid semantic and keyword search on OpenSearch with server-side rank fusion, parent-section retrieval and cross-encoder reranking',
-      },
-      {
-        title: 'Real-time scoring engine in Rust',
-        body: 'Streams updates over SSE with a multi-key cache and durable replay to recover changes missed during an outage; Ask Dan uses it to preview an edit',
-      },
-      {
-        title: 'Protocol import pipeline',
-        body: 'A Temporal workflow in Java extracts messy protocol documents with an LLM and writes them into the trial editor over GraphQL',
-      },
+      { title: 'Human-approved edits', body: 'Agent stages changes for a person to approve' },
+      { title: 'Retrieval it can trust', body: 'Hybrid search, rank fusion and reranking on OpenSearch' },
+      { title: 'Real-time scoring in Rust', body: 'SSE streaming with replay after outages' },
+      { title: 'Protocol import', body: 'Temporal pipeline from messy documents to structured data' },
     ],
     stack: ['Java', 'LangChain4j', 'Rust', 'OpenSearch', 'GraphQL', 'Temporal'],
   },

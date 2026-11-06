@@ -165,20 +165,18 @@ a { color: inherit; text-decoration: none; }
 }
 .fact dt { margin-top: 6px; font-size: 0.9375rem; line-height: 1.45; color: var(--fg-2); max-width: 40ch; }
 
-.detail { margin-top: clamp(56px, 7vw, 96px); border-bottom: 1px solid var(--line); }
+.detail { margin-top: clamp(40px, 5vw, 64px); border-bottom: 1px solid var(--line); }
 .detail__row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr);
-  gap: 12px clamp(24px, 5vw, 80px);
-  padding: 24px 0 26px;
+  gap: 2px clamp(24px, 5vw, 80px);
+  padding: 13px 0;
   border-top: 1px solid var(--line);
+  align-items: baseline;
 }
-.detail__row dt {
-  font-size: clamp(1.2rem, 1.7vw, 1.45rem);
-  font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;
-}
-.detail__row dd { font-size: 1.0625rem; line-height: 1.6; color: var(--fg-2); max-width: 62ch; }
-.detail__row--stack dt { font-size: 1rem; color: var(--fg-2); }
+.detail__row dt { font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.01em; }
+.detail__row dd { font-size: 1rem; color: var(--fg-2); }
+.detail__row--stack dt { font-weight: 600; color: var(--fg-2); }
 .detail__row--stack dd { color: var(--fg); font-weight: 600; }
 
 /* ─── Earlier ───────────────────────────────────────────── */
