@@ -3,7 +3,7 @@ export function Hero({ profile, work }) {
     <div className="top" id="top">
       <header className="head">
         <div className="head__text">
-          <h1 className="head__name">Hi, I’m <span className="nowrap">{profile.name}</span></h1>
+          <h1 className="head__name">I’m <span className="nowrap">{profile.name}</span></h1>
           <p className="head__intro">{profile.intro}</p>
         </div>
         <nav className="head__links" aria-label="Contact">
