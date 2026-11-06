@@ -8,7 +8,7 @@ export function Work({ items }) {
   )
 }
 
-function CaseStudy({ id, index, name, role, period, location, headline, summary, stat, facts, points, stack, link }) {
+function CaseStudy({ id, index, name, role, period, location, headline, summary, stat, facts, link }) {
   return (
     <section className={`case tone-${id}`} id={id} aria-labelledby={`${id}-title`}>
       <div className="case__inner">
@@ -43,18 +43,6 @@ function CaseStudy({ id, index, name, role, period, location, headline, summary,
           </dl>
         </div>
 
-        <dl className="detail">
-          {(points ?? []).map((p) => (
-            <div className="detail__row reveal" key={p.title}>
-              <dt>{p.title}</dt>
-              <dd>{p.body}</dd>
-            </div>
-          ))}
-          <div className="detail__row detail__row--stack reveal">
-            <dt>Built with</dt>
-            <dd>{stack.join(', ')}</dd>
-          </div>
-        </dl>
       </div>
     </section>
   )

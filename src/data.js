@@ -31,13 +31,6 @@ export const work = [
       { value: '<1 month', label: 'from first commit to engineers using it on live customer projects' },
       { value: '25+', label: 'tickets shipped in my first three weeks, as one of three engineers' },
     ],
-    points: [
-      { title: 'Grounded in the real product', body: "Retrieval over Pipe17's connector knowledge base" },
-      { title: 'Stays current on its own', body: 'Nightly drift check that opens its own PRs' },
-      { title: 'Secure by default', body: 'Sandboxed connector code, CI check keeps customer data out' },
-      { title: 'Built with its users', body: 'Recurring feedback sync with the engineers using it' },
-    ],
-    stack: ['TypeScript', 'LLM agents', 'Postgres', 'AWS', 'CI/CD'],
   },
   {
     id: 'kndi',
@@ -56,12 +49,6 @@ export const work = [
       { value: '3.2s → 0.8s', label: 'cold launch, measured with Xcode Instruments' },
       { value: 'Exactly once', label: 'message delivery through reconnects and app crashes' },
     ],
-    points: [
-      { title: 'No dropped or double messages', body: 'Idempotency keys, Postgres upserts, offline send queue' },
-      { title: 'Offline first', body: 'SwiftData cache that syncs on reconnect' },
-      { title: 'Survives bad connections', body: 'Cursor replay after disconnects, uploads survive app kills' },
-    ],
-    stack: ['Swift', 'SwiftUI', 'SwiftData', 'Supabase', 'Postgres', 'WebSockets'],
     link: { href: 'https://apps.apple.com/us/app/kndi/id6762342337', label: 'View on the App Store' },
   },
   {
@@ -81,13 +68,6 @@ export const work = [
       { value: '~3 days → <1 hr', label: 'to onboard a protocol document' },
       { value: '<1%', label: 'unsupported claims, measured with RAGAS faithfulness' },
     ],
-    points: [
-      { title: 'Human-approved edits', body: 'Agent stages changes for a person to approve' },
-      { title: 'Retrieval it can trust', body: 'Hybrid search, rank fusion and reranking on OpenSearch' },
-      { title: 'Real-time scoring in Rust', body: 'SSE streaming with replay after outages' },
-      { title: 'Protocol import', body: 'Temporal pipeline from messy documents to structured data' },
-    ],
-    stack: ['Java', 'LangChain4j', 'Rust', 'OpenSearch', 'GraphQL', 'Temporal'],
   },
   {
     id: 'protoscore',
@@ -106,7 +86,6 @@ export const work = [
       { value: '~80%', label: 'less manual expert review time' },
       { value: '2025', label: 'acquired by Nurocor' },
     ],
-    stack: ['Python', 'LLMs', 'React', 'Firebase'],
     link: {
       href: 'https://www.linkedin.com/posts/nurocor_nurocor-protoscore-ai-activity-7350540104987217922-j3wJ',
       label: "Read Nurocor's announcement",
