@@ -1,4 +1,8 @@
+import { useState } from 'react'
+
 export function Footer({ email, linkedin, github, location }) {
+  const [egg, setEgg] = useState(false)
+
   return (
     <footer className="contact" id="contact">
       <div className="contact__inner">
@@ -8,7 +12,24 @@ export function Footer({ email, linkedin, github, location }) {
           <a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
           <a href={github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           <span>{location}</span>
-          <span className="contact__copy">© {new Date().getFullYear()} Edward Lee</span>
+          <span className="contact__copy">
+            © {new Date().getFullYear()} Edward{' '}
+            <span className="egg">
+              <button
+                type="button"
+                className="egg__trigger"
+                aria-expanded={egg}
+                onClick={() => setEgg((v) => !v)}
+              >
+                Lee
+              </button>
+              {egg && (
+                <span className="egg__pop" role="status">
+                  3946451
+                </span>
+              )}
+            </span>
+          </span>
         </div>
       </div>
     </footer>
