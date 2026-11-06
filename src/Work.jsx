@@ -25,7 +25,7 @@ function CaseStudy({ id, index, name, role, period, location, headline, summary,
         <div className="case__grid">
           <div className="case__text reveal">
             <p className="case__headline">{headline}</p>
-            <p className="case__summary">{summary}</p>
+            {summary.map((para) => <p className="case__summary" key={para}>{para}</p>)}
             {link && (
               <a className="case__link" href={link.href} target="_blank" rel="noopener noreferrer">
                 {link.label} <span aria-hidden="true">↗</span>
