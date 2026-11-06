@@ -32,7 +32,6 @@ export const work = [
     ],
     facts: [
       { value: '<1 month', label: 'from first commit to engineers using it on live customer projects' },
-      { value: '25+', label: 'tickets shipped in my first three weeks, as one of three engineers' },
     ],
   },
   {
