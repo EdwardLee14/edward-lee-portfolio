@@ -2,7 +2,7 @@
 
 export const profile = {
   name: 'Edward Lee',
-  intro: 'Software engineer at Pipe17 building AI agents and real-time systems, and a founder with one successful exit',
+  intro: 'Software engineer at Pipe17 building AI agents, and a founder with one successful exit',
   email: 'edwardhlee7@gmail.com',
   linkedin: 'https://linkedin.com/in/edward-h-lee',
   github: 'https://github.com/edwardlee14',
