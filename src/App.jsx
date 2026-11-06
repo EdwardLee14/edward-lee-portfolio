@@ -1,14 +1,16 @@
 import { useEffect } from 'react'
-import { profile, experience, projects, education } from './data'
-import { GeometricCanvas } from './GeometricCanvas'
+import { profile, now, work, earlier, education } from './data'
 import { Hero } from './Hero'
-import { Experience } from './Experience'
-import { Projects } from './Projects'
-import { Education } from './Education'
+import { Work, Earlier } from './Work'
 import { Footer } from './Footer'
 
 export default function App() {
   useEffect(() => {
+    const els = document.querySelectorAll('.reveal')
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach((el) => el.classList.add('revealed'))
+      return
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -18,28 +20,19 @@ export default function App() {
           }
         })
       },
-      { threshold: 0.08 },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
     )
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+    els.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
 
   return (
     <>
-      <GeometricCanvas />
-      <div className="page">
-        <Hero {...profile} />
-        <main>
-          <Experience items={experience} />
-          <Projects items={projects} />
-          <Education {...education} />
-        </main>
-        <Footer
-          email={profile.email}
-          linkedin={profile.linkedin}
-          github={profile.github}
-        />
-      </div>
+      <a className="skip" href="#work">Skip to work</a>
+      <Hero profile={profile} now={now} work={work} />
+      <Work items={work} />
+      <Earlier items={earlier} education={education} />
+      <Footer {...profile} />
     </>
   )
 }

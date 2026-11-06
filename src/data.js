@@ -1,7 +1,8 @@
 export const profile = {
   name: 'Edward Lee',
-  tagline:
-    'Software engineer specializing in performance optimization. Founded ProtoScore (acquired by Nurocor).',
+  role: 'Software Engineer at Pipe17',
+  intro:
+    'I build AI agents that stay grounded in real data, real-time systems that survive bad networks, and the products around them. I founded ProtoScore, which Nurocor acquired in 2025.',
   phone: '425-346-3389',
   email: 'edwardhlee7@gmail.com',
   linkedin: 'https://linkedin.com/in/edward-h-lee',
@@ -9,66 +10,178 @@ export const profile = {
   location: 'Seattle, WA',
 }
 
-export const experience = [
+export const now = [
+  { label: 'Building', value: 'Atlas at Pipe17' },
+  { label: 'Shipping', value: 'kndi on iOS' },
+  { label: 'Based in', value: 'Seattle, WA' },
+]
+
+// Four case studies, newest first. Each has its own visual in Work.jsx keyed by `id`.
+export const work = [
   {
-    company: 'Nurocor',
-    location: 'Remote',
+    id: 'atlas',
+    index: '01',
+    name: 'Atlas',
+    org: 'Pipe17',
     role: 'Software Engineer',
-    period: 'Aug 2025 – Present',
-    bullets: [
-      'Built an ETL microservice ingesting biospecimen data via GraphQL, normalizing and storing in MongoDB, generating vector embeddings, and indexing in OpenSearch to power LLM-driven search and analytics.',
-      'Architected a RAG pipeline converting HTML to Markdown with metadata tagging, embeddings, and OpenSearch indexing, improving semantic retrieval precision from 74% to 93% evaluated with RAGAS benchmarks.',
-      'Developed a Java/Quarkus microservice orchestrated with Temporal workflows to convert and ingest study PDFs into a digital platform, reducing document onboarding from ~1 week of manual entry to under 3 hours.',
-      'Implemented a live scoring microservice in Rust, achieving 45% faster throughput than the previous Java implementation using SSE-based streaming and LLM-driven evaluation logic.',
-    ],
-  },
-  {
-    company: 'Robert Half',
-    location: 'Remote',
-    role: 'Software Engineer Intern',
-    period: 'Jun 2025 – Aug 2025',
-    bullets: [
-      'Engineered LLM function-calling pipelines for employee search using Azure AI Search and C#/.NET with a React/Redux streaming UI, reducing average query resolution time by 35% tracked via Azure Application Insights.',
-      'Implemented real-time speech-to-text transcription with Azure AI Speech, cutting manual data entry time by 60% measured through Azure Monitor usage telemetry.',
-      'Developed a document-generation agent using Semantic Kernel and OpenXML SDK, automating report creation workflows that previously took ~25 min down to under 2 min.',
-    ],
-  },
-  {
-    company: 'ProtoScore',
-    acquired: 'Acquired by Nurocor',
+    period: 'Sep 2026 – Present',
     location: 'Seattle, WA',
+    headline: 'An AI onboarding tool that turns scattered customer context into an implementation plan.',
+    summary:
+      "Solutions Architects at Pipe17 used to piece together each customer's setup from contracts, sales calls and product docs. Atlas reads all of it and drafts a blueprint of requirements, gaps and follow-up questions. I'm one of three engineers on it, and I own the knowledge pipeline end to end.",
+    facts: [
+      { value: '~90', label: 'commits in my first three weeks' },
+      { value: '25+', label: 'tickets shipped' },
+      { value: '<1 mo', label: 'from new repo to SAs using it on live customers' },
+    ],
+    points: [
+      {
+        title: 'Grounding the agent',
+        body: "Retrieval tools over the connector knowledge base, so Atlas recommends what Pipe17's connectors support today, not what a model guesses.",
+      },
+      {
+        title: 'Keeping it current with no upkeep',
+        body: 'A nightly refresh and drift check on EC2 compares the knowledge base to the connector platform and opens its own pull requests when they diverge. Releases are versioned.',
+      },
+      {
+        title: 'Security from day one',
+        body: 'Connector code runs in a sandbox, and a CI leak check keeps customer names out of shared knowledge, because this automation runs untrusted code with real credentials.',
+      },
+      {
+        title: 'Building with the users',
+        body: 'I started a recurring sync with the SA team and turned their feedback into tickets. Requirements now follow how SAs actually run discovery, and scope comes from the uploaded sales quote, so Atlas never invents unpaid work.',
+      },
+      {
+        title: 'Choosing the model',
+        body: 'I ran the model evaluation on a real customer case, scoring accuracy against an answer key alongside cost with cached-token pricing. That data drove the production model choice.',
+      },
+    ],
+    stack: ['TypeScript', 'LLM agents', 'Postgres', 'AWS EC2', 'CI/CD'],
+  },
+  {
+    id: 'kndi',
+    index: '02',
+    name: 'kndi',
+    org: 'kndi',
+    role: 'Founding Engineer',
+    period: 'Jan 2026 – Present',
+    location: 'Seattle, WA',
+    headline: 'A social app for festival-goers: plan the trip, find your friends, trade kandi.',
+    summary:
+      'I built the iOS app end to end in Swift and SwiftUI on Supabase. Group chats, set schedules, festival maps, events and a kandi trading game all have to work in a field with no signal, so the app is designed around being offline.',
+    facts: [
+      { value: '450+', label: 'App Store downloads' },
+      { value: '3.2s → 0.8s', label: 'cold launch (Xcode Instruments)' },
+      { value: 'Exactly once', label: 'message delivery through reconnects and crashes' },
+    ],
+    points: [
+      {
+        title: 'Messaging that never drops or doubles',
+        body: 'Client-side idempotency keys plus Postgres upserts, an offline outbound queue, and subscription replay on reconnect.',
+      },
+      {
+        title: 'Offline-first by default',
+        body: 'A SwiftData layer keeps the app fully usable with no connection. Background queues sync when signal returns.',
+      },
+      {
+        title: 'Recovering from dropped connections',
+        body: 'A shared real-time layer resumes from a cursor after a disconnect, and media uploads keep going even if the app is killed.',
+      },
+    ],
+    stack: ['Swift', 'SwiftUI', 'SwiftData', 'Supabase', 'Postgres', 'WebSockets'],
+    link: { href: 'https://apps.apple.com/us/app/kndi/id6762342337', label: 'View on the App Store' },
+    shots: [
+      { src: '/work/kndi-01.jpg', alt: 'kndi home screen: your festival groups and upcoming schedules' },
+      { src: '/work/kndi-02.jpg', alt: 'Festival page for Lost Lands with dates, location and map' },
+      { src: '/work/kndi-03.jpg', alt: "Set schedule grid showing which friends are going to each artist's set" },
+      { src: '/work/kndi-04.jpg', alt: 'Group trip page with photo, date, venue and attendees' },
+      { src: '/work/kndi-05.jpg', alt: 'Group chat where friends coordinate plans' },
+      { src: '/work/kndi-06.jpg', alt: 'Festival map with friend meetup pins' },
+      { src: '/work/kndi-07.jpg', alt: 'Kandi bracelet designer with bead and charm options' },
+      { src: '/work/kndi-08.jpg', alt: 'Leaderboard ranking friends by trade points' },
+      { src: '/work/kndi-09.jpg', alt: 'Search for people, festivals and artists' },
+    ],
+  },
+  {
+    id: 'askdan',
+    index: '03',
+    name: 'Ask Dan',
+    org: 'Nurocor',
+    role: 'Software Engineer',
+    period: 'Aug 2025 – Aug 2026',
+    location: 'Remote',
+    headline: 'An LLM agent that reads, queries and safely edits clinical trial protocols.',
+    summary:
+      'Ask Dan answers questions about study documents and proposes changes to structured protocol data. I designed its tool harness and the retrieval underneath it, and built the systems it relies on to preview and import protocols.',
+    facts: [
+      { value: '20% → <1%', label: 'unsupported claims (RAGAS faithfulness)' },
+      { value: '~3 days → <1 hr', label: 'to onboard a protocol document' },
+    ],
+    points: [
+      {
+        title: 'Tool harness with a human in the loop',
+        body: 'Built on LangChain4j: tools to semantically search study documents, query and edit protocol data over GraphQL, and stage validated edits for the user to approve.',
+      },
+      {
+        title: 'Retrieval it can trust',
+        body: 'Hybrid semantic and keyword search on OpenSearch with server-side rank fusion, parent-section retrieval and cross-encoder reranking.',
+      },
+      {
+        title: 'Real-time scoring engine in Rust',
+        body: 'Streams score updates over SSE, with a multi-key cache and durable replay to recover changes missed during an outage. Ask Dan uses it to preview the effect of an edit.',
+      },
+      {
+        title: 'Protocol import pipeline',
+        body: 'A Temporal workflow in Java extracts messy protocol documents with an LLM and writes them to the trial editor over GraphQL.',
+      },
+    ],
+    stack: ['Java', 'LangChain4j', 'Rust', 'OpenSearch', 'GraphQL', 'Temporal'],
+  },
+  {
+    id: 'protoscore',
+    index: '04',
+    name: 'ProtoScore',
+    org: 'ProtoScore',
     role: 'Founder',
     period: 'May 2024 – Jul 2025',
-    bullets: [
-      'Built a Python pipeline ingesting clinical trial PDFs through OCR extraction and structured parsing, applying LLM-based categorization and a scoring engine to produce automated evaluation scores.',
-      'Designed an async batch-processing system consolidating LLM inference across shared document segments, reducing redundant computation and cutting API costs by ~50% in production.',
-      'Built a configurable scoring engine that automated protocol evaluation, reducing manual review time by ~80%.',
-      'Shipped a full-stack application with React, Firebase, and Python REST APIs featuring structured ingestion endpoints, real-time status tracking, and detailed audit logging.',
-      'Validated scoring logic through iterative cycles with enterprise stakeholders including Regeneron and Tufts CSDD, incorporating domain expert feedback into evaluation criteria.',
+    location: 'Seattle, WA',
+    badge: 'Acquired by Nurocor',
+    headline: 'An AI platform that evaluates clinical trial protocols. It became my first company and my first exit.',
+    summary:
+      'Evaluating a trial protocol was slow, manual expert work. ProtoScore automated it and cut manual review time by about 80%. I ran customer development from the first prototype through to acquisition, validating the product with Regeneron and Tufts CSDD.',
+    facts: [
+      { value: '~80%', label: 'less manual expert review time' },
+      { value: '2025', label: 'acquired by Nurocor' },
     ],
+    post: {
+      href: 'https://www.linkedin.com/posts/nurocor_nurocor-protoscore-ai-activity-7350540104987217922-j3wJ',
+      author: 'Nurocor, Inc.',
+      date: 'Jul 14, 2025',
+      title: 'Welcome to the Team: Protoscore Joins Nurocor!',
+      excerpt:
+        'Nurocor announced its acquisition of Protoscore, an AI venture focused on clinical trials, and thanked Regeneron for connecting the two teams.',
+    },
+    stack: ['Python', 'LLMs', 'React', 'Firebase'],
   },
 ]
 
-export const projects = [
+export const earlier = [
   {
-    name: 'kndi',
-    location: 'Seattle, WA',
-    role: 'Founding Engineer',
-    tagline: 'iOS Social Commerce Platform',
-    users: '300+',
-    period: 'Jan 2026 – Present',
-    bullets: [
-      'Built the full iOS app end-to-end as sole engineer, shipping real-time messaging, event discovery, trades, and social feeds to 300+ users on the App Store.',
-      'Architected a real-time messaging system on Supabase (Postgres + WebSockets) with an offline outbound queue and subscription replay, achieving 99.6% message delivery reliability measured via PostHog event funnels.',
-      'Built an offline-first caching layer with SwiftData across feeds, chats, and inventory, cutting cold launch time from 3.2s to 0.8s and enabling full read functionality without connectivity, profiled with Xcode Instruments.',
-      'Engineered media compression pipelines with dimension-aware tiering and prefetching, reducing average feed image payload by 68% and achieving sub-200ms image load times on LTE, benchmarked with Charles Proxy and PostHog performance events.',
-    ],
+    org: 'Robert Half',
+    role: 'Software Engineer Intern',
+    period: 'Jun – Aug 2025',
+    body: "Built an agentic staffing tool for Protiviti project managers (Semantic Kernel, C#/.NET) that calls MCP tools over Azure AI Search to find available contractors, plus an MCP resume generator (OpenXML). Added real-time voice input to Protiviti's internal AI assistant with Azure AI Speech.",
+  },
+  {
+    org: 'King County Public Health',
+    role: 'Software Engineer Intern',
+    period: 'May – Aug 2024',
+    body: 'Built VaxTranslate, which translates foreign-language immunization records with Google Cloud Vision OCR and the Translate API. It exports structured CSV and overlays the translation on the original for verification. HIPAA-conscious: no persisted PHI, encryption at rest, deployed on AWS EC2.',
   },
 ]
 
 export const education = {
   school: 'University of Washington',
-  location: 'Seattle, WA',
-  degree: 'B.S. in Informatics: Software Development',
-  gpa: 'GPA: 3.9/4.0',
+  degree: 'B.S. Informatics, Software Development',
+  gpa: '3.9 GPA',
 }
