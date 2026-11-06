@@ -8,18 +8,17 @@ export function Work({ items }) {
   )
 }
 
-function CaseStudy({ id, index, name, role, period, location, headline, summary, stat, facts, link }) {
+function CaseStudy({ id, name, role, period, location, headline, summary, stat, facts, link }) {
   return (
     <section className={`case tone-${id}`} id={id} aria-labelledby={`${id}-title`}>
       <div className="case__inner">
         <header className="case__head reveal">
+          <h2 id={`${id}-title`} className="case__name">{name}</h2>
           <p className="case__meta">
-            <span>{index}</span>
             <span>{role}</span>
             <span>{period}</span>
             <span>{location}</span>
           </p>
-          <h2 id={`${id}-title`} className="case__name">{name}</h2>
         </header>
 
         <div className="case__grid">
