@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { profile, now, work, earlier, education } from './data'
+import { profile, work, earlier, recognition, education } from './data'
 import { Hero } from './Hero'
-import { Work, Earlier } from './Work'
+import { Work, Earlier, Recognition } from './Work'
 import { Footer } from './Footer'
 
 export default function App() {
@@ -29,8 +29,9 @@ export default function App() {
   return (
     <>
       <a className="skip" href="#work">Skip to work</a>
-      <Hero profile={profile} now={now} work={work} />
+      <Hero profile={profile} work={work} />
       <Work items={work} />
+      <Recognition items={recognition} />
       <Earlier items={earlier} education={education} />
       <Footer {...profile} />
     </>
